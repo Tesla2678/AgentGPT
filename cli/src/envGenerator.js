@@ -23,7 +23,7 @@ export const generateEnv = (envValues) => {
 const getEnvDefinition = (envValues, isDockerCompose, dbPort, platformUrl) => {
   return {
     "Deployment Environment": {
-      NODE_ENV: "production",
+      NODE_ENV: "development",
       NEXT_PUBLIC_VERCEL_ENV: "${NODE_ENV}",
     },
     NextJS: {
