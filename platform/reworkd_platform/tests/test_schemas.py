@@ -20,11 +20,15 @@ from reworkd_platform.schemas.agent import ModelSettings
             "model": "gpt-3.5-turbo-16k",
             "max_tokens": 16000,
         },
+        {
+            "model": "gpt-4-0125-preview",
+            "max_tokens": 16000,
+        }
     ],
 )
 def test_model_settings_valid(settings):
     result = ModelSettings(**settings)
-    assert result.model == settings.get("model", "gpt-3.5-turbo")
+    assert result.model == settings.get("model", "gpt-4-0125-preview")
     assert result.max_tokens == settings.get("max_tokens", 500)
     assert result.temperature == settings.get("temperature", 0.9)
     assert result.language == settings.get("language", "English")
@@ -46,6 +50,10 @@ def test_model_settings_valid(settings):
             "model": "gpt-4",
             "max_tokens": 32000,
         },
+        {
+            "model": "gpt-4-0125-preview",
+            "max_tokens": 16000,
+        }
     ],
 )
 def test_model_settings_invalid(settings):
@@ -55,7 +63,7 @@ def test_model_settings_invalid(settings):
 
 def test_model_settings_default():
     settings = ModelSettings(**{})
-    assert settings.model == "gpt-3.5-turbo"
+    assert settings.model == "gpt-4-0125-preview"
     assert settings.temperature == 0.9
     assert settings.max_tokens == 500
     assert settings.language == "English"
