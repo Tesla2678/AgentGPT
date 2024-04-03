@@ -42,8 +42,8 @@ export const useModelSettingsStore = createSelectors(
         partialize: (state) => ({
           modelSettings: {
             ...state.modelSettings,
-            customModelName: "gpt-3.5-turbo",
-            maxTokens: Math.min(state.modelSettings.maxTokens, 4000),
+            customModelName: "gpt-4-0125-preview",
+            maxTokens: Math.min(state.modelSettings.maxTokens, 16000),
           },
         }),
       }
